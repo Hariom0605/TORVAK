@@ -1,0 +1,27 @@
+{
+    "profile": {
+        "name": "Hariom",
+        "city": "Vapi",
+        "age": "20"
+    },
+    "preferences": {
+        "language": "Python",
+        "theme": "Dark",
+        "preferred": "VS Code , Cursor"
+    },
+    "facts": [
+        "I know C++",
+        "I use VS Code",
+        "Likes Python"
+    ],
+    "projects": [
+        "TORVAK"
+    ],
+    "tasks": [
+        "Finish Memory Module"
+    ],
+    "goals": [
+        "Become AI Engineer"
+    ],
+    "conversation": []
+}
