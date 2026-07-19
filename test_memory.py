@@ -3,7 +3,7 @@ from core.memory_engine import MemoryEngine
 memory = MemoryEngine()
 
 memory.save_profile("name", "Hariom")
-memory.save_profile("city", "Jaipur")
+memory.save_profile("city", "Vapi")
 
 memory.save_preference("language", "Python")
 memory.save_preference("theme", "Dark")

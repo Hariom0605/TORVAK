@@ -1,9 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Pytest
+.pytest_cache/
+
+# VS Code
+.vscode/
+
 # Environment
 .env
 
-# Settings
-config/settings.py
+# Logs
+*.log
 
-# Python cache
-__pycache__/
-*.pyc
+# Generated files
+memory/
+*.db
+*.sqlite3
+
+# OS
+.DS_Store
+Thumbs.db
