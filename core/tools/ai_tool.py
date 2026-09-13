@@ -14,5 +14,6 @@ class AITool(BaseTool):
         return True
 
     def execute(self, prompt: str):
-
-        return self.router.route(prompt)
+        result = self.router.route(prompt)
+        self.log_execution(prompt, result)
+        return result

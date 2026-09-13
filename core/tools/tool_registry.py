@@ -21,3 +21,19 @@ class ToolRegistry:
                 return tool.execute(prompt)
 
         return "I couldn't process your request."
+
+    def find_by_capability(self, capability: str):
+        """Find a tool by capability hint."""
+        capability_map = {
+            "memory": MemoryTool,
+            "command": CommandTool,
+            "ai": AITool,
+            "chat": AITool,
+            "coding": AITool,
+        }
+        tool_class = capability_map.get(capability.lower())
+        if tool_class:
+            for tool in self.tools:
+                if isinstance(tool, tool_class):
+                    return tool
+        return None

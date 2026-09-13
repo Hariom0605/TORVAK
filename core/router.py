@@ -1,4 +1,4 @@
-from core.memory_manager import process_memory
+from core.memory.manager import MemoryManager
 from core.coding_engine import CodingEngine
 
 
@@ -8,6 +8,7 @@ class AIRouter:
 
         self.ai = ai_engine
         self.coder = CodingEngine()
+        self.memory = MemoryManager()
 
     def route(self, prompt):
 
@@ -17,10 +18,18 @@ class AIRouter:
         # MEMORY
         # ====================================
 
-        reply = process_memory(prompt)
+        memory_results = self.memory.remember(prompt)
 
-        if reply:
-            return reply
+        if memory_results:
+            names = [m.content for m in memory_results]
+            return f"Got it. I'll remember: {', '.join(names)}."
+
+        # Check for memory queries
+        if any(phrase in text for phrase in ["what is my name", "where do i live", "what are my projects", "what are my goals", "what do you know about me"]):
+            relevant = self.memory.get_relevant_memories(prompt, top_k=5)
+            if relevant:
+                lines = [f"{m.memory_type.value.upper()}: {m.content}" for m in relevant]
+                return "\n".join(lines) if lines else "I don't know."
 
         # ====================================
         # CODING MODE

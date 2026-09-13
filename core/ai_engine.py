@@ -1,10 +1,13 @@
 
-from config.settings import GEMINI_API_KEY
+from settings import GEMINI_API_KEY
 from core.context_memory import ContextMemory
 
 import socket
 import ollama
-import google.generativeai as genai
+try:
+    from google import genai
+except ImportError:
+    import google.generativeai as genai  # Fallback to old SDK
 
 
 SYSTEM_PROMPT = """

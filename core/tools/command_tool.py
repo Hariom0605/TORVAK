@@ -32,4 +32,6 @@ class CommandTool(BaseTool):
         return any(keyword in text for keyword in known_commands)
 
     def execute(self, prompt: str):
-        return self.command.execute(prompt.lower())
+        result = self.command.execute(prompt.lower())
+        self.log_execution(prompt, result)
+        return result
